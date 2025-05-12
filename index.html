@@ -14,20 +14,45 @@
 		}
 
 		button {
-			font-size: 18px;
+			font-size: 24px; /* Увеличен размер шрифта */
 			font-family: 'courier';
 			color: white;
-			background-color: white; /*#4CAF50;  Green */
-			border: none;
-			color: black;
-			padding: 15px 32px;
+			background-color: #4a0080; /* Более насыщенный фиолетовый */
+			border: 2px solid #ff69b4; /* Розовая граница */
+			border-radius: 15px; /* Более округлая форма */
+			color: white;
+			padding: 15px 45px; /* Увеличен размер кнопки */
 			text-align: center;
 			text-decoration: none;
 			display: inline-block;
+			margin: 20px 0;
+			transition: all 0.3s ease;
+			box-shadow: 0 0 15px #ff69b4; /* Добавлено свечение */
+			text-shadow: 0 0 8px #ff69b4; /* Добавлена тень текста */
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #ff69b4; /* При наведении становится розовым */
+			box-shadow: 0 0 20px #ff69b4, 0 0 40px #ff69b4; /* Усиленное свечение */
+			transform: scale(1.05); /* Небольшое увеличение */
 		}
 
 		#start {
-			background-color: green
+			background-color: #4a0080; /* Более насыщенный фиолетовый */
+			animation: buttonGlow 2.5s ease-in-out infinite alternate;
+		}
+
+		/* Анимация кнопки */
+		@keyframes buttonGlow {
+			from {
+				box-shadow: 0 0 15px #ff69b4;
+				border-color: #ff69b4;
+			}
+			to {
+				box-shadow: 0 0 25px #ff0066, 0 0 40px #ff0066;
+				border-color: #ff0066;
+			}
 		}
 
 		#startconsoledebug {
@@ -298,11 +323,27 @@
 		/* Новый стиль для поздравительного текста, отображаемого между кнопкой и тортом */
 		.birthday-message {
 			margin: 40px 0;
-			font-size: 1.8em;
-			color: #ff69b4;
-			text-shadow: 0 0 5px #000, 0 0 8px #000;
+			font-size: 2em;
+			color: white;
+			text-shadow: 0 0 5px #4a0080, 0 0 15px #ff69b4;
 			opacity: 0;
 			transition: opacity 1s ease-in;
+			background-color: rgba(0,0,0,0.3);
+			padding: 20px;
+			border-radius: 15px;
+			max-width: 800px;
+			margin-left: auto;
+			margin-right: auto;
+			border: 2px solid #ff69b4;
+			box-shadow: 0 0 15px #ff69b4;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
+		}
+
+		.birthday-message h5 {
+			margin: 10px auto;
+			max-width: 90%;
+			line-height: 1.4;
 		}
 
 		.birthday-message.visible {
@@ -313,12 +354,14 @@
 		/* Анимация текста поздравления - обновленная */
 		@keyframes textGlow {
 			from {
-				text-shadow: 0 0 5px #000, 0 0 10px #ff69b4, 0 0 15px #ff69b4;
-				color: white;
+				text-shadow: 0 0 5px #4a0080, 0 0 15px #ff69b4;
+				box-shadow: 0 0 15px #ff69b4;
+				border-color: #ff69b4;
 			}
 			to {
-				text-shadow: 0 0 5px #000, 0 0 20px #ff0066, 0 0 30px #ff0066, 0 0 40px #ff0066;
-				color: #ffccff;
+				text-shadow: 0 0 10px #4a0080, 0 0 20px #ff0066, 0 0 40px #ff0066;
+				box-shadow: 0 0 25px #ff0066, 0 0 40px #ff0066;
+				border-color: #ff0066;
 			}
 		}
 
@@ -412,16 +455,16 @@
 <body class="text-center">
 <h1>🎂</h1>
 <br>
-<button id="start">START</button>
-<button style="display: none" id="startconsoledebug">enable console logs</button>
-<button style="display: none" id="stopconsoledebug">disable console logs</button>
-<br>
-<br>
+<div style="margin-bottom: 40px;">
+	<button id="start">START</button>
+	<button style="display: none" id="startconsoledebug">enable console logs</button>
+	<button style="display: none" id="stopconsoledebug">disable console logs</button>
+</div>
 
 <!-- Поздравительный текст между кнопкой и тортом -->
 <div class="birthday-message" id="birthday-text">
 	<h2>С днем рождения мартуся</h2>
-	<h3>❤ Самая лучшая дотерша в мире ❤</h3>
+	<h5>❤ Самая лучшая дотерша в мире ❤</h5>
 </div>
 
 <br>
